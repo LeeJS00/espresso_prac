@@ -300,7 +300,7 @@ typedef struct {
     symbolic_t *symbolic_output;/* allow symbolic output mapping */
 } PLA_t, *pPLA;
 
-#define equal(a,b)      (strcmp(a,b) == 0)
+//#define equal(a,b)      (strcmp(a,b) == 0)
 
 /* This is a hack which I wish I hadn't done, but too painful to change */
 #define CUBELISTSIZE(T)         (((pcube *) T[1] - T) - 3)

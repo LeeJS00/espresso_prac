@@ -2,11 +2,16 @@ SRC := $(wildcard ./espresso-src/*.c)
 
 OBJ := ${SRC:.c=.o}
 
+OBJ_DIR := ./obj
+
 TARGETDIR := ../bin
 
-TARGET := $(TARGETDIR)/espresso
+#TARGET := $(TARGETDIR)/espresso
+TARGET := espresso
 
-#CXXFLAGS = -std=c++17 -W -Wall -O3 -m64 
+OBJECTS := $(patsubst %.o,$(OBJ_DIR)/$.o,$(OBJ))
+
+CXXFLAGS = -std=c++17 -W -Wall -O3 -m64 
 
 all: prepare $(TARGET)
 
@@ -14,8 +19,8 @@ prepare:
 	mkdir -p $(TARGETDIR)
 
 $(TARGET): $(OBJ) $
-	g++ -c main.cpp
-	gcc -c $(OBJ)
+	g++ $(CXXFLAGS) -c main.cpp
+	gcc -c $(SRC)
 	g++ -o $(TARGET) main.o $(OBJ)
 
 .PHONY: clean all
@@ -23,4 +28,5 @@ $(TARGET): $(OBJ) $
 clean: 
 	@- $(RM) $(TARGET)
 	@- $(RM) $(OBJ)
+	rm -f *.o
 
