@@ -15,7 +15,7 @@ prepare:
 
 $(TARGET): $(OBJ) $
 	g++ -c main.cpp
-	$(LINK.c) $(OBJ)
+	gcc -c $(OBJ)
 	g++ -o $(TARGET) main.o $(OBJ)
 
 .PHONY: clean all

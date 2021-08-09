@@ -17,7 +17,7 @@ extern "C" {
 	#include "main.h"		/* table definitions for options */
 }
 #include <unistd.h>
-#include <string>
+//#include <string>
 
 static FILE *last_fp;
 static int input_type = FD_type;
